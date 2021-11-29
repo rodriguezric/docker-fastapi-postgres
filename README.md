@@ -116,7 +116,7 @@ from sqlalchemy import Table, Column, String, Integer
 from .db import metadata
 
 people = Table(
-	"people",
+    "people",
     metadata,
     Column("id", Integer, primary_key=True),
     Column("name", String),
