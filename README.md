@@ -100,7 +100,7 @@ DB_URL = f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@f_db:{POSTGRES_PORT}
 
 db = databases.Database(DB_URL)
 
-metadata = databases.MetaData()
+metadata = sqlalchemy.MetaData()
 
 engine = sqlalchemy.create_engine(DB_URL)
 ```
