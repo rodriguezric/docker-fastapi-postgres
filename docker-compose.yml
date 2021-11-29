@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  f_api:
+    container_name: f_api
+    build: .
+    ports: 
+      - "80:80"
+    volumes:
+      - "./app:/app"
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_DB: "${POSTGRES_DB}"
+      POSTGRES_PORT: "${POSTGRES_PORT}"
+
+  f_db:
+    container_name: f_db
+    image: postgres:14.1
+    restart: always
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_DB: "${POSTGRES_DB}"
