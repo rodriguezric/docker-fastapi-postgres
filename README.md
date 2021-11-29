@@ -160,11 +160,11 @@ app = FastAPI()
 @app.on_event("startup")
 async def startup():
     metadata.create_all(engine)
-	await db.connect()
+    await db.connect()
     
 @app.on_event("shutdown")
 async def shutdown()
-	await db.disconnect()
+    await db.disconnect()
     
 @app.get("/people/", response_model=List[Person])   
 async def read_people():
