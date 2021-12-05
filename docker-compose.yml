@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   f_api:
-    container_name: f_api
+    container_name: "${DOCKER_API_NAME}"
     build: .
     ports: 
       - "80:80"
@@ -14,7 +14,7 @@ services:
       POSTGRES_PORT: "${POSTGRES_PORT}"
 
   f_db:
-    container_name: f_db
+    container_name: "${DOCKER_DB_NAME}"
     image: postgres:14.1
     restart: always
     environment:
