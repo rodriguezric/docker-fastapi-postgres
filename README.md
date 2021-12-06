@@ -26,6 +26,9 @@ POSTGRES_USER=postgres
 POSTGRES_PASSWORD=password
 POSTGRES_DB=postgres
 POSTGRES_PORT=5432
+
+DOCKER_API_NAME=f_api
+DOCKER_DB_NAME=f_db
 ```
 
 
@@ -58,7 +61,7 @@ I use docker-compose for my local setups, but I will look into how to use it for
 version: '3.9'
 services:
   f_api:
-    container_name: f_api
+    container_name: "${DOCKER_API_NAME}"
     build: .
     ports: 
       - "80:80"
@@ -71,7 +74,7 @@ services:
       POSTGRES_PORT: "${POSTGRES_PORT}"
 
   f_db:
-    container_name: f_db
+    container_name: "${DOCKER_DB_NAME}"
     image: postgres:14.1
     restart: always
     environment:
